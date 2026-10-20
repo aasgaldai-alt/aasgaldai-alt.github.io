@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Аасгалдай ХХК</title>
+<meta name="description" content="Аасгалдай ХХК — авто зам, замын байгууламжийн барилга угсралт, засвар шинэчлэлийн мэргэшсэн гүйцэтгэгч. 2019 оноос хойш 14+ томоохон гэрээ.">
+<meta property="og:title" content="Аасгалдай ХХК">
+<meta property="og:description" content="Авто зам, замын байгууламжийн барилга угсралт, засвар шинэчлэлийн мэргэшсэн гүйцэтгэгч.">
+<meta property="og:image" content="img/hero.jpg">
+<meta name="theme-color" content="#0b1550">
+<link rel="icon" type="image/png" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;800&display=swap">
+<style>
+/* Layout: sticky nav → photo hero → alternating light / deep-navy bands; a dashed road centre-line separates sections */
+:root{
+  --navy:#0b1550; --navy-2:#16236b; --blue:#1546c9; --ink:#10183a; --muted:#5b6584; --line:#dfe4f0; --paper:#f5f7fb; --white:#ffffff;
+  --o:#f07800; --y:#f2c200; --g:#6bb33a; --grad:linear-gradient(90deg,var(--o),var(--y) 50%,var(--g));
+  --font:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--white);color:var(--ink);font:400 16px/1.6 var(--font);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--white)}
+img{max-width:100%;display:block}
+a{color:inherit}
+.in{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-weight:800;letter-spacing:-.02em;text-wrap:balance;margin:0}
+h2{font-size:clamp(28px,4.2vw,44px);line-height:1.08;color:var(--navy)}
+.eyebrow{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--o);margin-bottom:12px}
+.eyebrow::before{content:"";width:36px;height:4px;border-radius:2px;background:var(--grad)}
+.lead{color:var(--muted);font-size:17px;max-width:62ch}
+section{padding-block:clamp(56px,8vw,96px)}
+.lane{height:6px;background:repeating-linear-gradient(90deg,var(--y) 0 46px,transparent 46px 78px);opacity:.9}
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.nav .in{display:flex;align-items:center;gap:20px;height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;color:var(--navy);font-size:18px;letter-spacing:-.01em}
+.brand img{width:38px;height:38px}
+.brand small{display:block;font-size:11px;font-weight:600;letter-spacing:.14em;color:var(--muted)}
+.links{display:flex;gap:4px;margin-left:auto}
+.links a{text-decoration:none;font-weight:500;font-size:15px;color:var(--ink);padding:8px 12px;border-radius:9px}
+.links a:hover{background:var(--paper)}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:15px;border-radius:12px;padding:11px 18px;border:0;cursor:pointer;font-family:inherit}
+.btn-login{background:var(--navy);color:#fff;position:relative}
+.btn-login::after{content:"";position:absolute;left:12px;right:12px;bottom:6px;height:2px;border-radius:2px;background:var(--grad)}
+.btn-login:hover{background:var(--blue)}
+.btn-light{background:#fff;color:var(--navy)}
+.btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.35)}
+.menu{display:none;margin-left:auto;background:none;border:1px solid var(--line);border-radius:10px;width:44px;height:42px;font-size:20px;cursor:pointer;color:var(--navy)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--y);outline-offset:2px}
+/* hero */
+.hero{position:relative;color:#fff;background:var(--navy) url(img/hero.jpg) center/cover no-repeat;padding:0}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(95deg,rgba(11,21,80,.97) 0%,rgba(11,21,80,.9) 42%,rgba(11,21,80,.45) 75%,rgba(11,21,80,.25))}
+.hero .in{position:relative;padding-block:clamp(64px,10vw,120px) clamp(48px,7vw,84px)}
+.hero h1{font-size:clamp(46px,9vw,104px);line-height:.95;letter-spacing:-.035em}
+.hero .sub{font-size:13px;font-weight:600;letter-spacing:.3em;color:var(--y);margin-top:12px}
+.hero p{font-size:clamp(17px,2vw,21px);max-width:34ch;color:#dfe6ff;margin:22px 0 30px;line-height:1.5}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero .bar{width:120px;height:5px;border-radius:3px;background:var(--grad);margin-top:26px}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:-1px}
+.stat{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:22px}
+.stat b{display:block;font-size:clamp(30px,4vw,42px);font-weight:800;color:var(--navy);letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.stat b em{font-style:normal;font-size:.45em;color:var(--o);margin-left:4px;letter-spacing:0}
+@media (max-width:560px){.stat b em{display:block;margin:6px 0 0;white-space:nowrap}}
+.stat span{display:block;color:var(--muted);font-size:14px;margin-top:8px;line-height:1.4}
+.about{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,64px);align-items:center}
+.about .photo{border-radius:22px;overflow:hidden;position:relative;aspect-ratio:4/3.3}
+.about .photo img{width:100%;height:100%;object-fit:cover}
+.tag{position:absolute;left:14px;bottom:14px;background:rgba(11,21,80,.92);color:#fff;border-radius:12px;padding:10px 14px;font-size:13px;line-height:1.35}
+.tag b{color:var(--y);display:block}
+/* services */
+.svc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:36px}
+.svc article{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px}
+.svc .n{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;color:#fff;font-weight:800;margin-bottom:18px}
+.svc h3{font-size:19px;color:var(--navy);line-height:1.25;margin-bottom:8px}
+.svc p{margin:0;color:var(--muted);font-size:15px}
+.lic{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+.lic div{background:var(--navy);color:#cdd6f5;border-radius:16px;padding:18px 22px;display:flex;align-items:center;gap:18px;font-size:14px;line-height:1.45}
+.lic b{color:var(--y);font-size:22px;font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums}
+/* finance */
+.dark{background:var(--navy);color:#fff}
+.dark h2{color:#fff}
+.dark .lead{color:#b9c4ea}
+.fin{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(28px,5vw,56px);align-items:end;margin-top:36px}
+.chart{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:end;height:300px;border-bottom:1px solid rgba(255,255,255,.25);padding-top:34px}
+.chart .c{display:flex;flex-direction:column;justify-content:flex-end;height:100%;position:relative}
+.chart .v{font-weight:800;font-size:20px;text-align:center;margin-bottom:8px;font-variant-numeric:tabular-nums}
+.chart .b{border-radius:12px 12px 0 0;background:linear-gradient(90deg,var(--o),var(--y) 50%,var(--g))}
+.chart .b.first{background:#3a5bdb}
+.chart-x{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;text-align:center;color:#b9c4ea;font-weight:600;font-size:14px;margin-top:10px}
+.kpis{display:flex;flex-direction:column;gap:12px}
+.kpis div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:18px 22px}
+.kpis b{font-size:34px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.kpis b em{font-style:normal;font-size:15px;color:var(--y);margin-left:6px;letter-spacing:0}
+.kpis span{display:block;color:#b9c4ea;font-size:14px}
+/* table */
+.tbl{overflow-x:auto;margin-top:32px;border:1px solid var(--line);border-radius:18px}
+table{width:100%;border-collapse:collapse;min-width:720px;font-size:15px}
+th{background:var(--navy);color:#fff;font-size:12px;letter-spacing:.12em;text-transform:uppercase;text-align:left;padding:14px 16px;font-weight:600}
+td{padding:14px 16px;border-top:1px solid var(--line);vertical-align:top}
+td.no{color:var(--o);font-weight:800;width:48px}
+td small{display:block;color:var(--muted);font-size:13px}
+td.d{color:var(--muted);white-space:nowrap;font-size:14px}
+td.m,th.m{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.m{font-weight:800;color:var(--navy)}
+tr.tot td{background:var(--paper);font-weight:800;color:var(--navy)}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:220px;gap:14px;margin-top:32px}
+.gal figure{margin:0;position:relative;border-radius:18px;overflow:hidden;background:var(--navy)}
+.gal figure.w{grid-column:span 2;grid-row:span 2}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gal figure:hover img{transform:scale(1.04)}
+.gal figcaption{position:absolute;inset:auto 0 0;padding:44px 16px 14px;background:linear-gradient(transparent,rgba(11,21,80,.92));color:#fff;font-weight:600;line-height:1.3}
+.gal figcaption small{display:block;color:var(--y);font-size:12.5px;font-weight:600;margin-bottom:2px}
+/* current contracts */
+.cur{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:32px}
+.cur article{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.cur .top{padding:26px 24px 20px;color:#fff;min-height:150px;display:flex;flex-direction:column;justify-content:flex-end}
+.cur .top small{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;opacity:.9}
+.cur .top b{font-size:38px;font-weight:800;letter-spacing:-.03em;line-height:1.05}
+.cur .body{padding:20px 24px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.cur h3{font-size:17px;color:var(--navy);line-height:1.35}
+.cur .meta{color:var(--muted);font-size:13.5px}
+.cur .amt{font-size:28px;font-weight:800;color:var(--navy);margin-top:auto;font-variant-numeric:tabular-nums}
+.cur .amt em{font-style:normal;font-size:15px;color:var(--o);margin-left:4px}
+.prog{height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.prog i{display:block;height:100%;background:var(--grad);border-radius:4px}
+.pl{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+.pl b{color:var(--g)}
+/* equipment */
+.eq{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,5vw,56px);align-items:start}
+.eql{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:28px}
+.eql div{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-weight:600;color:var(--navy);display:flex;align-items:center;gap:10px;font-size:15px}
+.eql div::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--grad);flex:none}
+.eql small{margin-left:auto;color:var(--muted);font-weight:500;font-size:12.5px}
+.plant{margin-top:14px;background:var(--navy);color:#cdd6f5;border-radius:18px;padding:20px 22px;display:flex;gap:16px;align-items:center}
+.plant i{width:52px;height:52px;border-radius:12px;background:var(--grad);flex:none}
+.plant b{color:#fff;font-size:18px;display:block}
+.eqp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.eqp img{border-radius:16px;aspect-ratio:4/3;object-fit:cover;width:100%}
+/* team */
+.team{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:32px}
+.team article{border:1px solid var(--line);border-radius:18px;padding:20px;display:flex;gap:16px;align-items:center}
+.av{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;background:linear-gradient(140deg,var(--blue),#2aa6e8);flex:none}
+.team b{display:block;color:var(--navy);font-size:17px}
+.team span{display:block;color:var(--muted);font-size:14px;line-height:1.4}
+.team em{font-style:normal;color:var(--o);font-weight:600;font-size:13.5px}
+.ops{margin-top:16px;background:var(--paper);border-radius:18px;padding:22px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.ops .big{font-size:40px;font-weight:800;color:var(--navy);line-height:1;margin-right:12px}
+.ops .big small{display:block;font-size:13px;font-weight:500;color:var(--muted);margin-top:6px}
+.ops span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-weight:600;color:var(--navy);font-size:14px}
+.ops span em{font-style:normal;color:var(--o);margin-left:6px;font-size:12.5px}
+/* principles */
+.pr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:32px}
+.pr article{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:22px;display:flex;gap:16px}
+.pr .k{font-size:30px;font-weight:800;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;flex:none}
+.pr h3{font-size:17px;margin-bottom:6px}
+.pr p{margin:0;color:#b9c4ea;font-size:14.5px}
+/* clients */
+.cl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:32px}
+.cl div{border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:12px;justify-content:space-between;min-height:110px}
+.cl b{color:var(--navy);font-size:16px;line-height:1.3}
+.cl span{color:var(--o);font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+/* contact */
+.contact{position:relative;color:#fff;background:var(--navy) url(img/city-road.jpg) center/cover no-repeat}
+.contact::before{content:"";position:absolute;inset:0;background:linear-gradient(95deg,rgba(11,21,80,.97),rgba(11,21,80,.86) 55%,rgba(11,21,80,.55))}
+.contact .in{position:relative}
+.cgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:30px;max-width:720px}
+.cgrid div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:16px 18px}
+.cgrid div.w{grid-column:span 2}
+.cgrid small{display:block;color:var(--y);font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:4px}
+.cgrid b{font-size:17px;font-weight:600;user-select:all}
+footer{background:#070e38;color:#9aa6d4;font-size:14px}
+footer .in{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;padding-block:22px}
+footer a{color:#fff;text-decoration:none;font-weight:600}
+.reveal{animation:up .8s ease both}
+@keyframes up{from{transform:translateY(14px);opacity:.001}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media (max-width:980px){
+  .links{display:none}.menu{display:block}
+  .nav.open .links{display:flex;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:#fff;border-bottom:1px solid var(--line);padding:10px max(20px,env(safe-area-inset-left,0px)) 16px}
+  .stats,.svc{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .about,.fin,.eq{grid-template-columns:1fr}
+  .cur,.team,.pr{grid-template-columns:1fr}
+  .cl{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gal{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:180px}
+}
+@media (max-width:560px){
+  .nav .btn-login{padding:10px 14px}
+  .brand small{display:none}
+  .lic,.cgrid{grid-template-columns:1fr}.cgrid div.w{grid-column:auto}
+  .lic div{flex-direction:column;align-items:flex-start;gap:6px}
+  .gal figure.w{grid-column:span 2;grid-row:span 1}
+  .eql{grid-template-columns:1fr}
+  .chart{height:240px}
+}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav"><div class="in">
+  <a class="brand" href="#top"><img src="img/logo.png" alt="" width="38" height="38"><span>Аасгалдай<small>ХХК · AASGALDAI LLC</small></span></a>
+  <div class="links" id="links"><a href="#about">Бидний тухай</a><a href="#works">Ажлууд</a><a href="#equipment">Техник</a><a href="#team">Баг</a><a href="#contact">Холбоо барих</a></div>
+  <button class="menu" id="menu" type="button" aria-label="Цэс" aria-expanded="false">☰</button>
+  <a class="btn btn-login" href="https://app.aasgaldai.mn/">Нэвтрэх</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="in reveal">
+  <h1>Аасгалдай</h1>
+  <div class="sub">ХХК · AASGALDAI LLC</div>
+  <p>Авто зам, замын байгууламжийн барилга угсралт, засвар шинэчлэлийн мэргэшсэн гүйцэтгэгч</p>
+  <div class="cta"><a class="btn btn-light" href="#works">Гүйцэтгэсэн ажлууд</a><a class="btn btn-ghost" href="#contact">Хамтран ажиллах</a></div>
+  <div class="bar"></div>
+</div></header>
+<div class="lane" aria-hidden="true"></div>
+
+<section id="about"><div class="in">
+  <div class="about">
+    <div>
+      <div class="eyebrow">Бидний тухай</div>
+      <h2>Найдвартай зам — хөгжлийн суурь</h2>
+      <p class="lead">«Аасгалдай» ХХК нь 2019 онд үүсгэн байгуулагдсан, хатуу болон хайрган хучилттай авто зам барих, засварлах, замын байгууламж, тохижилт, тэмдэг тэмдэглэгээний ажил гүйцэтгэдэг хувийн хэвшлийн компани юм. Улаанбаатар хот болон орон нутагт төрийн захиалгат томоохон төслүүдийг үндсэн гүйцэтгэгчээр амжилттай хэрэгжүүлж байна.</p>
+    </div>
+    <div class="photo"><img src="img/bayantal-aerial.jpg" alt="Говьсүмбэр, Баянтал сумын төвийн хатуу хучилттай авто зам"><div class="tag"><b>Говьсүмбэр, Баянтал сум</b>3.4 км хатуу хучилттай авто зам</div></div>
+  </div>
+  <div class="stats" style="margin-top:36px">
+    <div class="stat"><b>2019</b><span>онд үүсгэн байгуулагдсан</span></div>
+    <div class="stat"><b>14<em>+</em></b><span>томоохон гэрээг үндсэн гүйцэтгэгчээр</span></div>
+    <div class="stat"><b>32.6<em>тэрбум ₮</em></b><span>гэрээний нийт дүн (2024–2026)</span></div>
+    <div class="stat"><b>10.8<em>тэрбум ₮</em></b><span>жилийн дундаж борлуулалт (2023–2025)</span></div>
+  </div>
+</div></section>
+
+<section style="background:var(--paper)"><div class="in">
+  <div class="eyebrow">Үйл ажиллагааны чиглэл</div>
+  <h2>Замын ажлын бүрэн шийдэл</h2>
+  <div class="svc">
+    <article><div class="n" style="background:var(--o)">01</div><h3>Авто зам барих, засварлах</h3><p>Хатуу болон хайрган хучилттай зам шинээр барих, засвар шинэчлэлт, асфальтбетон хучилт.</p></article>
+    <article><div class="n" style="background:#e0a800">02</div><h3>Замын байгууламж</h3><p>Замын байгууламжид хамаарах талбай, авто зогсоол, явган зам, хашлага, суурь бэлтгэл.</p></article>
+    <article><div class="n" style="background:var(--g)">03</div><h3>Тохижилт, тавилан</h3><p>Гудамж талбайн тохижилт, тавилан барих, гэр хорооллын шороон замыг сайжруулах.</p></article>
+    <article><div class="n" style="background:var(--blue)">04</div><h3>Тоноглол, тэмдэглэгээ</h3><p>Замын тоноглол, тэмдэг, тэмдэглэгээ — хөдөлгөөний аюулгүй байдлыг хангах шийдэл.</p></article>
+  </div>
+  <div class="lic">
+    <div><b>2023/02/096</b><span>Барилгын тусгай зөвшөөрөл · Авто замын 2.8.2.1, 2.8.2.2, 2.8.5.1, 2.8.2.6, 2.8.2.7</span></div>
+    <div><b>2025/02/246</b><span>Барилгын тусгай зөвшөөрөл · 5.2.3.1, 5.2.3.2, 5.2.3.3, 5.2.3.4</span></div>
+  </div>
+</div></section>
+
+<section class="dark"><div class="in">
+  <div class="eyebrow">Санхүүгийн чадавх</div>
+  <h2>Тогтвортой өсөлттэй борлуулалт</h2>
+  <p class="lead">Борлуулалтын орлого, сая төгрөгөөр</p>
+  <div class="fin">
+    <div>
+      <div class="chart" role="img" aria-label="Борлуулалт: 2023 онд 1,778 сая, 2024 онд 16,912 сая, 2025 онд 13,706 сая төгрөг">
+        <div class="c"><div class="v">1,778</div><div class="b first" style="height:calc((100% - 34px) * 0.1051)"></div></div>
+        <div class="c"><div class="v">16,912</div><div class="b" style="height:calc(100% - 34px)"></div></div>
+        <div class="c"><div class="v">13,706</div><div class="b" style="height:calc((100% - 34px) * 0.8104)"></div></div>
+      </div>
+      <div class="chart-x"><span>2023</span><span>2024</span><span>2025</span></div>
+    </div>
+    <div class="kpis">
+      <div><b>32.4<em>тэрбум ₮</em></b><span>Сүүлийн 3 жилийн нийт борлуулалт</span></div>
+      <div><b>10.8<em>тэрбум ₮</em></b><span>Жилийн дундаж борлуулалтын орлого</span></div>
+      <div><b>×9.5</b><span>2023 оноос 2024 онд орлогын өсөлт</span></div>
+    </div>
+  </div>
+</div></section>
+<div class="lane" aria-hidden="true"></div>
+
+<section id="works"><div class="in">
+  <div class="eyebrow">Гүйцэтгэсэн ажлын туршлага</div>
+  <h2>Үндсэн гүйцэтгэгчээр хэрэгжүүлсэн гэрээнүүд</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>№</th><th>Ажлын нэр / захиалагч</th><th>Хугацаа</th><th class="m">Гэрээний дүн, ₮</th></tr></thead>
+    <tbody>
+    <tr><td class="no">01</td><td>Говьсүмбэр аймгийн Баянтал сумын төвийн 3.4 км хатуу хучилттай авто зам<small>Говьсүмбэр аймгийн ЗДТГ</small></td><td class="d">2024.03 – 2025.07</td><td class="m">4,619,251,369</td></tr>
+    <tr><td class="no">02</td><td>Энхтайвны өргөн чөлөөний авто замын хэсэгчилсэн засвар, шинэчлэлт<small>Нийслэлийн ЗДТГ</small></td><td class="d">2025.03 – 2025.10</td><td class="m">4,294,814,431</td></tr>
+    <tr><td class="no">03</td><td>СХД-ийн 41-р хороо, 124-р сургуулийн урд шинээр барих авто зам (Багц-10)<small>Нийслэлийн ЗДТГ</small></td><td class="d">2024.05 – 2024.11</td><td class="m">2,505,908,837</td></tr>
+    <tr><td class="no">04</td><td>Хонхны гудамжны засвар, шинэчлэлт<small>Нийслэлийн ЗДТГ</small></td><td class="d">2024.09 – 2025.12</td><td class="m">1,482,033,627</td></tr>
+    <tr><td class="no">05</td><td>Хөсөг трейд ХХК-ийн урдаас «ЗТХТ» ТӨҮГ-ын байр хүртэлх авто зам<small>Зам, тээврийн яам</small></td><td class="d">2025.07 – 2025.12</td><td class="m">1,213,869,376</td></tr>
+    <tr><td class="no">06</td><td>Элчингийн гудамжны авто замын засвар, шинэчлэлт<small>Нийслэлийн ЗДТГ</small></td><td class="d">2024.08 – 2024.11</td><td class="m">1,034,684,326</td></tr>
+    <tr><td class="no">07</td><td>Чагдаржавын гудамжны авто замын засвар, шинэчлэлт<small>Нийслэлийн ЗДТГ</small></td><td class="d">2024.09 – 2024.11</td><td class="m">545,114,584</td></tr>
+    <tr><td class="no">08</td><td>Гэр хорооллын шороон зам хусаж, тэгшлэх ажил (Баянгол дүүрэг)<small>Баянгол дүүргийн ЗДТГ</small></td><td class="d">2025.05 – 2025.10</td><td class="m">348,054,099</td></tr>
+    <tr><td class="no">09</td><td>Гэр хорооллын гудамж, замыг сайжруулсан шороон зам болгох (БЗД 27, 29-р хороо)<small>Нийслэлийн ЗДТГ</small></td><td class="d">2026.03 – 2026.10</td><td class="m">345,368,935</td></tr>
+    <tr><td class="no">10</td><td>Авто машины зогсоол — 46-р байрны ард<small>Сонгинохайрхан дүүргийн ЗДТГ</small></td><td class="d">2025.04 – 2025.06</td><td class="m">328,931,972</td></tr>
+    <tr><td class="no">11</td><td>5-р хороо, 21-р байрны гадна авто зогсоол<small>Сүхбаатар дүүргийн ЗДТГ</small></td><td class="d">2024.09 – 2024.10</td><td class="m">105,030,688</td></tr>
+    <tr class="tot"><td></td><td>Нийт 11 гэрээ</td><td></td><td class="m">16,823,062,244</td></tr>
+    </tbody></table></div>
+
+  <div class="gal">
+    <figure class="w"><img src="img/enkhtaivan.jpg" alt="Энхтайвны өргөн чөлөө"><figcaption><small>2025 · 4.29 тэрбум ₮</small>Энхтайвны өргөн чөлөөний засвар, шинэчлэлт</figcaption></figure>
+    <figure><img src="img/elchin.jpg" alt="Элчингийн гудамж"><figcaption><small>2024 · 1.03 тэрбум ₮</small>Элчингийн гудамж</figcaption></figure>
+    <figure><img src="img/chagdarjav.jpg" alt="Чагдаржавын гудамж"><figcaption><small>2024 · 545 сая ₮</small>Чагдаржавын гудамж</figcaption></figure>
+    <figure><img src="img/khonkh.jpg" alt="Хонхны гудамж"><figcaption><small>2024–2025 · 1.48 тэрбум ₮</small>Хонхны гудамж</figcaption></figure>
+    <figure><img src="img/night.jpg" alt="Шөнийн ажил"><figcaption><small>Шөнийн ажил</small>Хөдөлгөөнд саадгүй зохион байгуулалт</figcaption></figure>
+    <figure><img src="img/bayantal.jpg" alt="Баянтал сумын төвийн зам"><figcaption><small>2024–2025 · 4.62 тэрбум ₮</small>Баянтал сумын төвийн 3.4 км зам</figcaption></figure>
+    <figure><img src="img/skhd41.jpg" alt="СХД 41-р хороо"><figcaption><small>2024 · 2.51 тэрбум ₮</small>СХД 41-р хороо, шинэ авто зам</figcaption></figure>
+    <figure class="w"><img src="img/3txt.jpg" alt="ЗТХТ ТӨҮГ хүртэлх авто зам"><figcaption><small>2025 · 1.21 тэрбум ₮</small>«ЗТХТ» ТӨҮГ хүртэлх авто зам</figcaption></figure>
+    <figure><img src="img/bayangol-grader.jpg" alt="Баянгол дүүргийн гэр хорооллын зам"><figcaption><small>2025 · 348 сая ₮</small>Баянгол дүүргийн гэр хорооллын зам</figcaption></figure>
+    <figure><img src="img/parking.jpg" alt="Авто зогсоол"><figcaption><small>2024–2025</small>Авто зогсоолын ажлууд</figcaption></figure>
+  </div>
+</div></section>
+
+<section style="background:var(--paper)"><div class="in">
+  <div class="eyebrow">2026 оны томоохон гэрээнүүд</div>
+  <h2>Хэрэгжүүлж буй, саяхан дуусгасан ажлууд</h2>
+  <div class="cur">
+    <article><div class="top" style="background:linear-gradient(140deg,#0b1550,#2140b8)"><small>Өмнөговь</small><b>239 км</b></div><div class="body"><h3>Тавантолгой–Гашуунсухайт чиглэлийн 239 км хатуу хучилттай авто замын засвар, Багц-1</h3><div class="meta">Эрдэнэс Монгол ХХК · 2026.02 – 2026.09</div><div class="amt">7.99<em>тэрбум ₮</em></div><div class="prog"><i style="width:100%"></i></div><div class="pl"><span>Гүйцэтгэл</span><b>100%</b></div></div></article>
+    <article><div class="top" style="background:linear-gradient(140deg,#1546c9,#25b3ef)"><small>Төв аймаг, Зуунмод</small><b>4 эгнээ</b></div><div class="body"><h3>Зуунмод хотын Самбуу, Бодоо, Худалдааны гудамжийг 4 эгнээ болгон өргөтгөх</h3><div class="meta">Төв аймгийн Засаг дарга · 2025.12 – 2026.11</div><div class="amt">5.88<em>тэрбум ₮</em></div><div class="prog"><i style="width:100%"></i></div><div class="pl"><span>Гүйцэтгэл</span><b>100%</b></div></div></article>
+    <article><div class="top" style="background:linear-gradient(140deg,#f07800,#f2c200 60%,#6bb33a)"><small>Улаанбаатар, Баянгол</small><b>Арчлалт</b></div><div class="body"><h3>Хотын гол болон туслах гудамж замуудын арчлалт, засвар (Баянгол дүүрэг-2)</h3><div class="meta">Нийслэлийн ЗДТГ · 2026.02 – 2026.12</div><div class="amt">1.93<em>тэрбум ₮</em></div><div class="prog"><i style="width:83%"></i></div><div class="pl"><span>Гүйцэтгэл</span><b>83%</b></div></div></article>
+  </div>
+</div></section>
+
+<section id="equipment"><div class="in">
+  <div class="eq">
+    <div>
+      <div class="eyebrow">Машин механизм</div>
+      <h2>Өөрийн техник, өөрийн асфальтын завод</h2>
+      <div class="eql">
+        <div>Асфальт дэвсэгч</div><div>Автогрейдер</div><div>Экскаватор</div><div>Авто ачигч</div>
+        <div>Далангийн индүү</div><div>Гөлгөр булт индүү</div><div>Хийн дугуйт индүү</div><div>Өөрөө буулгагч<small>15 тн+</small></div>
+        <div>Усны машин<small>10 тн+</small></div><div>Хөрс холигч</div>
+      </div>
+      <div class="plant"><i></i><div><b>Асфальтбетоны завод</b>Өөрийн эзэмшлийн үйлдвэр — хучилтын материалын чанар, нийлүүлэлтийг бүрэн хянана.</div></div>
+    </div>
+    <div class="eqp">
+      <img src="img/eq-grader.jpg" alt="Автогрейдер"><img src="img/eq-loader.jpg" alt="Авто ачигч">
+      <img src="img/eq-roller.jpg" alt="Далангийн индүү"><img src="img/eq-excavator.jpg" alt="Экскаватор">
+      <img src="img/eq-truck.jpg" alt="Өөрөө буулгагч"><img src="img/eq-pneumatic.jpg" alt="Хийн дугуйт индүү">
+    </div>
+  </div>
+</div></section>
+<div class="lane" aria-hidden="true"></div>
+
+<section id="team"><div class="in">
+  <div class="eyebrow">Хүний нөөц</div>
+  <h2>Туршлагатай инженер, техникийн баг</h2>
+  <div class="team">
+    <article><div class="av">ДБ</div><div><b>Д.Батсүрэн</b><span>Ерөнхий инженер · Мэргэшсэн авто замын инженер</span><em>11 жилийн туршлага</em></div></article>
+    <article><div class="av">БО</div><div><b>Б.Отгонпүрэв</b><span>Талбайн инженер · Авто замын инженер</span><em>10 жилийн туршлага</em></div></article>
+    <article><div class="av">БТ</div><div><b>Б.Түвшинбаатар</b><span>Материалын инженер · Авто замын инженер</span><em>10 жилийн туршлага</em></div></article>
+    <article><div class="av">ББ</div><div><b>Б.Баттулга</b><span>Геодезийн инженер</span><em>8 жилийн туршлага</em></div></article>
+    <article><div class="av">ЖА</div><div><b>Ж.Анужин</b><span>ХАБЭА-н ажилтан</span><em>5 жилийн туршлага</em></div></article>
+    <article><div class="av">БМ</div><div><b>Б.Мөнх-Эрдэнэ</b><span>Замын техникч · Авто замын инженер</span><em>2 жилийн туршлага</em></div></article>
+  </div>
+  <div class="ops"><div class="big">10–15<small>жилийн туршлагатай мэргэжлийн операторууд</small></div>
+    <span>Ц.Хосбаяр<em>15 жил</em></span><span>Ц.Бат-Эрдэнэ<em>15 жил</em></span><span>З.Баттүвшин<em>15 жил</em></span><span>Ц.Цогбаяр<em>10 жил</em></span></div>
+</div></section>
+
+<section class="dark"><div class="in">
+  <div class="eyebrow">Ажлын зарчим</div>
+  <h2>Чанар, аюулгүй байдал, хариуцлага</h2>
+  <div class="pr">
+    <article><div class="k">01</div><div><h3>Хугацаа, төсөвтөө багтаана</h3><p>Ажлыг гэрээний үнэ, хугацаанд багтаан зураг төсөл, техникийн нөхцөлийн дагуу өндөр чанартай гүйцэтгэж хүлээлгэн өгнө.</p></div></article>
+    <article><div class="k">02</div><div><h3>Хөдөлгөөнд саадгүй</h3><p>Ачаалал ихтэй зам дээр шаардлагатай үед шөнөөр ажиллаж, тээвэр болон замын хөдөлгөөнд саад учруулахгүй зохион байгуулна.</p></div></article>
+    <article><div class="k">03</div><div><h3>Аюулгүй ажиллагаа</h3><p>Замын тэмдэг, тэмдэглэгээ, хаалт тоноглолыг төлөвлөн байршуулж, байнгын дохиочин ажиллуулна.</p></div></article>
+    <article><div class="k">04</div><div><h3>Зөвлөхийн хяналттай чанар</h3><p>Суурь, хучилтын орц нормыг техникийн шаардлагаар тогтоож, гүйцэтгэсэн ажил бүрийг зөвлөхөөр хянуулж баталгаажуулна.</p></div></article>
+    <article><div class="k">05</div><div><h3>Ногоон орчин</h3><p>Эрчим хүч, байгалийн нөөцийн хэмнэлттэй, хаягдал болон хүлэмжийн хийн ялгарал багатай ажиллана.</p></div></article>
+    <article><div class="k">06</div><div><h3>Шуурхай хариу үйлдэл</h3><p>Онцгой үед гарсан эвдрэлийг захиалагч, зөвлөхийн заавраар түргэн шуурхай засварлана.</p></div></article>
+  </div>
+</div></section>
+
+<section><div class="in">
+  <div class="eyebrow">Захиалагчид</div>
+  <h2>Бидэнд итгэл хүлээлгэсэн байгууллагууд</h2>
+  <div class="cl">
+    <div><b>Нийслэлийн Засаг даргын Тамгын газар</b><span>7 гэрээ</span></div>
+    <div><b>Эрдэнэс Монгол ХХК</b><span>ТТ–ГС Багц-1</span></div>
+    <div><b>Зам, тээврийн яам</b><span>Авто зам</span></div>
+    <div><b>Говьсүмбэр аймгийн Засаг даргын Тамгын газар</b><span>3.4 км зам</span></div>
+    <div><b>Төв аймгийн Засаг дарга</b><span>Зуунмод хот</span></div>
+    <div><b>Сонгинохайрхан дүүргийн ЗДТГ</b><span>Авто зогсоол</span></div>
+    <div><b>Баянгол дүүргийн ЗДТГ</b><span>Гэр хорооллын зам</span></div>
+    <div><b>Сүхбаатар дүүргийн ЗДТГ</b><span>Авто зогсоол</span></div>
+  </div>
+</div></section>
+
+<section class="contact" id="contact"><div class="in">
+  <div class="eyebrow">Холбоо барих</div>
+  <h2 style="color:#fff">Хамтран ажиллая</h2>
+  <div class="cgrid">
+    <div><small>Захирал</small><b>Ү.Эрдэнэсанаа</b></div>
+    <div><small>Утас</small><b>9900-4998</b></div>
+    <div class="w"><small>Хаяг</small><b>Улаанбаатар хот, Баянгол дүүрэг, 26-р хороо, Уранган оффис, 4 давхар</b></div>
+    <div><small>Регистрийн дугаар</small><b>6474098</b></div>
+    <div><small>Улсын бүртгэлийн дугаар</small><b>9011811407</b></div>
+  </div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px"><a class="btn btn-light" href="tel:+97699004998">Залгах · 9900-4998</a><a class="btn btn-ghost" href="https://app.aasgaldai.mn/">Ажилчдын нэвтрэх</a></div>
+</div></section>
+<footer><div class="in"><span>© 2026 Аасгалдай ХХК · Авто зам, замын байгууламж</span><a href="https://app.aasgaldai.mn/">Нэвтрэх →</a></div></footer>
+<script>
+(function(){var n=document.getElementById("nav"),b=document.getElementById("menu");
+b.addEventListener("click",function(){var o=n.classList.toggle("open");b.setAttribute("aria-expanded",o);b.textContent=o?"✕":"☰";});
+document.getElementById("links").addEventListener("click",function(e){if(e.target.tagName==="A"){n.classList.remove("open");b.textContent="☰";b.setAttribute("aria-expanded","false");}});})();
+</script>
+</body>
+</html>
