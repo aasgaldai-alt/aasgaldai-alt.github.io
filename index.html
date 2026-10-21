@@ -61,7 +61,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--y);outline-offset:2
 .hero .cta{display:flex;flex-wrap:wrap;gap:12px}
 .hero .bar{width:120px;height:5px;border-radius:3px;background:var(--grad);margin-top:26px}
 /* stats */
-.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:-1px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:-1px}
 .stat{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:22px}
 .stat b{display:block;font-size:clamp(30px,4vw,42px);font-weight:800;color:var(--navy);letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
 .stat b em{font-style:normal;font-size:.45em;color:var(--o);margin-left:4px;letter-spacing:0}
@@ -184,6 +184,7 @@ footer a{color:#fff;text-decoration:none;font-weight:600}
   .links{display:none}.menu{display:block}
   .nav.open .links{display:flex;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:#fff;border-bottom:1px solid var(--line);padding:10px max(20px,env(safe-area-inset-left,0px)) 16px}
   .stats,.svc{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats .stat:last-child{grid-column:1/-1}
   .about,.fin,.eq{grid-template-columns:1fr}
   .cur,.team,.pr{grid-template-columns:1fr}
   .cl{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -230,7 +231,6 @@ footer a{color:#fff;text-decoration:none;font-weight:600}
     <div class="stat"><b>2019</b><span>онд үүсгэн байгуулагдсан</span></div>
     <div class="stat"><b>14<em>+</em></b><span>томоохон гэрээг үндсэн гүйцэтгэгчээр</span></div>
     <div class="stat"><b>32.6<em>тэрбум ₮</em></b><span>гэрээний нийт дүн (2024–2026)</span></div>
-    <div class="stat"><b>10.8<em>тэрбум ₮</em></b><span>жилийн дундаж борлуулалт (2023–2025)</span></div>
   </div>
 </div></section>
 
@@ -249,26 +249,6 @@ footer a{color:#fff;text-decoration:none;font-weight:600}
   </div>
 </div></section>
 
-<section class="dark"><div class="in">
-  <div class="eyebrow">Санхүүгийн чадавх</div>
-  <h2>Тогтвортой өсөлттэй борлуулалт</h2>
-  <p class="lead">Борлуулалтын орлого, сая төгрөгөөр</p>
-  <div class="fin">
-    <div>
-      <div class="chart" role="img" aria-label="Борлуулалт: 2023 онд 1,778 сая, 2024 онд 16,912 сая, 2025 онд 13,706 сая төгрөг">
-        <div class="c"><div class="v">1,778</div><div class="b first" style="height:calc((100% - 34px) * 0.1051)"></div></div>
-        <div class="c"><div class="v">16,912</div><div class="b" style="height:calc(100% - 34px)"></div></div>
-        <div class="c"><div class="v">13,706</div><div class="b" style="height:calc((100% - 34px) * 0.8104)"></div></div>
-      </div>
-      <div class="chart-x"><span>2023</span><span>2024</span><span>2025</span></div>
-    </div>
-    <div class="kpis">
-      <div><b>32.4<em>тэрбум ₮</em></b><span>Сүүлийн 3 жилийн нийт борлуулалт</span></div>
-      <div><b>10.8<em>тэрбум ₮</em></b><span>Жилийн дундаж борлуулалтын орлого</span></div>
-      <div><b>×9.5</b><span>2023 оноос 2024 онд орлогын өсөлт</span></div>
-    </div>
-  </div>
-</div></section>
 <div class="lane" aria-hidden="true"></div>
 
 <section id="works"><div class="in">
