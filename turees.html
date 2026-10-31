@@ -272,7 +272,7 @@ footer a{color:#fff;text-decoration:none;font-weight:600}
       <label class="fl w"><span id="l_oname">Овог, нэр</span><input name="oname" required autocomplete="name" placeholder="Жишээ: Батын Дорж"></label>
       <label class="fl"><span id="l_oreg">Регистрийн дугаар</span><input name="oreg" required placeholder="УБ12345678" autocapitalize="characters"></label>
       <label class="fl co" hidden><span>Төлөөлөгчийн албан тушаал</span><input name="orep" value="Захирал"></label>
-      <label class="fl co" hidden><span>Төлөөлөгчийн нэр</span><input name="orepName" placeholder="Жишээ: Г.Цэрэнбалжир"></label>
+      <label class="fl co" hidden><span>Төлөөлөгчийн нэр</span><input name="orepName" placeholder="Жишээ: Б.Тэмүүлэн"></label>
       <label class="fl"><span>Утас</span><input name="phone" required inputmode="tel" autocomplete="tel" placeholder="99112233"></label>
       <label class="fl"><span>И-мэйл</span><input name="email" type="email" required autocomplete="email" placeholder="ner@gmail.com"></label>
       <label class="fl"><span>Хаяг <small>(заавал биш)</small></span><input name="address" autocomplete="street-address"></label>
@@ -328,8 +328,8 @@ function val(n){var e=f.elements[n];if(!e)return "";if(e.length&&e[0]&&e[0].type
 function today(o){var d=new Date(Date.now()+(o||0)*864e5);return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2);}
 $("start").value=today(1);
 function sync(){var co=val("ptype")==="Байгууллага";document.querySelectorAll(".co").forEach(function(x){x.hidden=!co;});
- document.getElementById("l_oname").textContent=co?"Байгууллагын нэр":"Овог, нэр";$("oname").placeholder=co?"Жишээ: “Ган очирт зам” ХХК":"Жишээ: Батын Дорж";
- document.getElementById("l_oreg").textContent=co?"Байгууллагын регистр (7 оронтой)":"Регистрийн дугаар";$("oreg").placeholder=co?"6805485":"УБ12345678";
+ document.getElementById("l_oname").textContent=co?"Байгууллагын нэр":"Овог, нэр";$("oname").placeholder=co?"Жишээ: “Жишээ техник” ХХК":"Жишээ: Батын Дорж";
+ document.getElementById("l_oreg").textContent=co?"Байгууллагын регистр (7 оронтой)":"Регистрийн дугаар";$("oreg").placeholder=co?"1234567":"УБ12345678";
  document.getElementById("l_rate").textContent=val("rateType")==="Сар"?"1 сарын түрээс, ₮":"1 өдрийн түрээс, ₮";}
 f.addEventListener("change",sync);sync();
 $("rate").addEventListener("input",function(e){var v=e.target.value.replace(/\D/g,"");e.target.value=v?(+v).toLocaleString("en-US"):"";});
